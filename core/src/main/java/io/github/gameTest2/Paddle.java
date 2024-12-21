@@ -4,8 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import javax.crypto.KEM;
-
 public class Paddle {
     int x;
     int y;
@@ -27,7 +25,7 @@ public class Paddle {
         shape.rect(x,y,width,height);
     }
 
-    public void playerMovement(){
+    public void playerMovementMouse(){
         y = (Gdx.graphics.getHeight() - Gdx.input.getY()) - height / 2;
     }
 

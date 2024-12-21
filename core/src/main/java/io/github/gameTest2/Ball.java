@@ -60,7 +60,7 @@ public class Ball {
 
     public int differenceOfY(Paddle paddle){
         System.out.println("Y Paddle - Y Ball = "+ ((Math.abs((paddle.y + paddle.height/2) - y)/10)+1));
-        return ((Math.abs((paddle.y + paddle.height/2) - y)/7) + 1);
+        return ((Math.abs((paddle.y + paddle.height/2) - y)/8) + 1);
     }
 
     public void collisionCheck(Paddle paddle){
@@ -94,5 +94,28 @@ public class Ball {
             }
         }
     }
+
+    public void resetBall(ScoreSystem score){
+        score.score(this);
+
+        if (score.player1Score){
+            score.player1Score = false;
+            x = Gdx.graphics.getWidth() /2 - 250;
+            y = Gdx.graphics.getHeight() / 2 + ((int) (Math.random() * (60 - (-60) + 1)) + (-60));//y da bola sera um valor aleatorio entre 60 e -60
+            xSpeed = xSpeed > 0 ? xSpeed : -xSpeed;// garantindo a positividade de x
+            ySpeed = Math.random() > .5? 1 : -1;
+        }
+
+        if (score.player2Score){
+            score.player2Score = false;
+            x = Gdx.graphics.getWidth() /2 + 250;//
+            y = Gdx.graphics.getHeight() / 2 + ((int) (Math.random() * (60 - (-60) + 1)) + (-60));//y da bola sera um valor aleatorio entre 60 e -60
+            xSpeed = xSpeed > 0 ? -xSpeed : xSpeed;// garantindo a negatividade de x
+            ySpeed = Math.random() > .5? 1 : -1;
+
+        }
+
+    }
+
 
 }
