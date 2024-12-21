@@ -51,10 +51,12 @@ public class Main extends ApplicationAdapter {
         ball.collisionCheck(paddleAI);
 
         paddlePlayer.draw(shape);
-        paddlePlayer.playerMovement();
+        //paddlePlayer.playerMovement();
+        paddlePlayer.playerMovementKeyboard();
 
         paddleAI.draw(shape);
-        paddleAI.AIMovement(ball);
+        paddleAI.player2MovementKeyboard();
+        //paddleAI.AIMovement(ball);
         shape.end();
 
         batch.begin();
